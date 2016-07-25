@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -76,7 +77,11 @@ public class DieRollerGUI {
 		JButton btnRoll_d4 = new JButton("Roll");
 		btnRoll_d4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				try {
+					
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
 			}
 		});
 		btnRoll_d4.setBounds(159, 36, 49, 21);
