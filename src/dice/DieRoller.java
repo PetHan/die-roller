@@ -18,6 +18,7 @@ public class DieRoller {
 		for(int i = 0; i < dieNumber; i++) {		// calls the number generator a number of times 
 			latestRoll = randInt(1, 4);				// signified by the die number.
 			System.out.print(latestRoll + ", ");
+			DieRollerGUI.textField_record.setText(Integer.toString(latestRoll) + ", ");
 			numTotal += latestRoll;
 		}
 		
@@ -89,6 +90,18 @@ public class DieRoller {
 		int latestRoll = 0;							// the most recent roll.
 		for(int i = 0; i < dieNumber; i++) {		// calls the number generator a number of times 
 			latestRoll = randInt(1, 100);				// signified by the die number.
+			System.out.print(latestRoll + ", ");
+			numTotal += latestRoll;
+		}
+		
+		return numTotal  + dieModifier;
+	}
+	
+	public static int rollDX(int dieNumber, int dieModifier, int dX) {
+		int numTotal = 0;							// the total value of the die rolls.
+		int latestRoll = 0;							// the most recent roll.
+		for(int i = 0; i < dieNumber; i++) {		// calls the number generator a number of times 
+			latestRoll = randInt(1, dX);				// signified by the die number.
 			System.out.print(latestRoll + ", ");
 			numTotal += latestRoll;
 		}

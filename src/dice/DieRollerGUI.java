@@ -41,6 +41,7 @@ public class DieRollerGUI {
 	private JTextField textField_d20_result;
 	private JTextField textField_d100_result;
 	private JTextField textField_dX_result;
+	protected static JTextField textField_record;
 
 	/**
 	 * Launch the application.
@@ -73,19 +74,6 @@ public class DieRollerGUI {
 		frame.setBounds(100, 100, 450, 325);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JButton btnRoll_d4 = new JButton("Roll");
-		btnRoll_d4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Please enter a valid number");
-				}
-			}
-		});
-		btnRoll_d4.setBounds(159, 36, 49, 21);
-		frame.getContentPane().add(btnRoll_d4);
 		
 		JLabel lbl_Die = new JLabel("Die");
 		lbl_Die.setHorizontalAlignment(SwingConstants.CENTER);
@@ -277,41 +265,153 @@ public class DieRollerGUI {
 		textField_dX_mod.setBounds(100, 251, 49, 20);
 		frame.getContentPane().add(textField_dX_mod);
 		
+//-----------------------------------------------------------------------------------------------	
+		//Rolls
+//-----------------------------------------------------------------------------------------------		
+
+		JButton btnRoll_d4 = new JButton("Roll");
+		btnRoll_d4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int dieNumber, dieModifier, result;
+				try {
+					dieNumber = Integer.parseInt(textField_d4_num.getText());
+					dieModifier = Integer.parseInt(textField_d4_mod.getText());
+					result = DieRoller.rollD4(dieNumber, dieModifier);
+					textField_d4_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
+			}
+		});
+		btnRoll_d4.setBounds(159, 36, 49, 21);
+		frame.getContentPane().add(btnRoll_d4);
+		
+		
 		JButton btnRoll_d6 = new JButton("Roll");
+		btnRoll_d6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int dieNumber, dieModifier, result;
+				try {
+					dieNumber = Integer.parseInt(textField_d6_num.getText());
+					dieModifier = Integer.parseInt(textField_d6_mod.getText());
+					result = DieRoller.rollD6(dieNumber, dieModifier);
+					textField_d6_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
+			}
+		});
 		btnRoll_d6.setBounds(159, 64, 49, 21);
 		frame.getContentPane().add(btnRoll_d6);
 		
+		
 		JButton btnRoll_d8 = new JButton("Roll");
+		btnRoll_d8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int dieNumber, dieModifier, result;
+				try {
+					dieNumber = Integer.parseInt(textField_d8_num.getText());
+					dieModifier = Integer.parseInt(textField_d8_mod.getText());
+					result = DieRoller.rollD8(dieNumber, dieModifier);
+					textField_d8_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
+			}
+		});
 		btnRoll_d8.setBounds(159, 95, 49, 21);
 		frame.getContentPane().add(btnRoll_d8);
 		
+		
 		JButton btnRoll_d10 = new JButton("Roll");
+		btnRoll_d10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int dieNumber, dieModifier, result;
+				try {
+					dieNumber = Integer.parseInt(textField_d10_num.getText());
+					dieModifier = Integer.parseInt(textField_d10_mod.getText());
+					result = DieRoller.rollD10(dieNumber, dieModifier);
+					textField_d10_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
+			}
+		});
 		btnRoll_d10.setBounds(159, 126, 49, 21);
 		frame.getContentPane().add(btnRoll_d10);
 		
+		
 		JButton btnRoll_d12 = new JButton("Roll");
+		btnRoll_d12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int dieNumber, dieModifier, result;
+				try {
+					dieNumber = Integer.parseInt(textField_d12_num.getText());
+					dieModifier = Integer.parseInt(textField_d12_mod.getText());
+					result = DieRoller.rollD12(dieNumber, dieModifier);
+					textField_d12_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
+			}
+		});
 		btnRoll_d12.setBounds(159, 157, 49, 21);
 		frame.getContentPane().add(btnRoll_d12);
+		
 		
 		JButton btnRoll_d20 = new JButton("Roll");
 		btnRoll_d20.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int dieNumber, dieModifier, result;
+				try {
+					dieNumber = Integer.parseInt(textField_d20_num.getText());
+					dieModifier = Integer.parseInt(textField_d20_mod.getText());
+					result = DieRoller.rollD20(dieNumber, dieModifier);
+					textField_d20_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
 			}
 		});
 		btnRoll_d20.setBounds(159, 188, 49, 21);
 		frame.getContentPane().add(btnRoll_d20);
 		
+		
 		JButton btnRoll_d100 = new JButton("Roll");
+		btnRoll_d100.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int dieNumber, dieModifier, result;
+				try {
+					dieNumber = Integer.parseInt(textField_d100_num.getText());
+					dieModifier = Integer.parseInt(textField_d100_mod.getText());
+					result = DieRoller.rollD100(dieNumber, dieModifier);
+					textField_d100_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
+			}
+		});
 		btnRoll_d100.setBounds(159, 219, 49, 21);
 		frame.getContentPane().add(btnRoll_d100);
 		
+		
 		JButton btnRoll_dX = new JButton("Roll");
+		btnRoll_dX.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int dieNumber, dieModifier, dX, result;
+				try {
+					dieNumber = Integer.parseInt(textField_dX_num.getText());
+					dieModifier = Integer.parseInt(textField_dX_mod.getText());
+					dX = Integer.parseInt(textField_dX.getText());
+					result = DieRoller.rollDX(dieNumber, dieModifier, dX);
+					textField_dX_result.setText(Integer.toString(result));
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid number");
+				}
+			}
+		});
 		btnRoll_dX.setBounds(159, 250, 49, 21);
 		frame.getContentPane().add(btnRoll_dX);
-		
-		JTextPane textPane_Record = new JTextPane();
-		textPane_Record.setBounds(283, 36, 141, 235);
-		frame.getContentPane().add(textPane_Record);
 		
 		textField_d4_result = new JTextField();
 		textField_d4_result.setColumns(10);
@@ -357,5 +457,11 @@ public class DieRollerGUI {
 		lbl_Record.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_Record.setBounds(326, 11, 46, 14);
 		frame.getContentPane().add(lbl_Record);
+		
+		textField_record = new JTextField();
+		textField_record.setBounds(286, 36, 138, 235);
+		frame.getContentPane().add(textField_record);
+		textField_record.setColumns(10);
 	}
+	
 }
