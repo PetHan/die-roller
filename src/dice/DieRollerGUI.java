@@ -266,9 +266,8 @@ public class DieRollerGUI {
 		frame.getContentPane().add(textField_dX_mod);
 		
 //-----------------------------------------------------------------------------------------------	
-		//Rolls
-//-----------------------------------------------------------------------------------------------		
-
+		
+		
 		JButton btnRoll_d4 = new JButton("Roll");
 		btnRoll_d4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -459,7 +458,7 @@ public class DieRollerGUI {
 		frame.getContentPane().add(lbl_Record);
 		
 		textField_record = new JTextField();
-		textField_record.setBounds(286, 36, 138, 235);
+		textField_record.setBounds(272, 37, 152, 234);
 		frame.getContentPane().add(textField_record);
 		textField_record.setColumns(10);
 	}
